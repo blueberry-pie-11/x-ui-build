@@ -76,18 +76,18 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-      # - name: Build and push with beta tag
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: build_image
-      #     file: ./build_image/Dockerfile.beta
-      #     platforms: linux/amd64,linux/arm64,linux/s390x
-      #     push: true
-      #     tags: |
-      #       ${{ steps.dockerhub_image.outputs.lowercase }}:beta
-      #       ghcr.io/${{ steps.ghcr_image.outputs.lowercase }}:beta
-      #     cache-from: type=gha
-      #     cache-to: type=gha,mode=max
+      - name: Build and push with 3x-ui
+        uses: docker/build-push-action@v6
+        with:
+          context: build_image
+          file: ./build_image/Dockerfile.3x-ui
+          platforms: linux/amd64,linux/arm64,linux/s390x
+          push: true
+          tags: |
+            ${{ steps.dockerhub_image.outputs.lowercase }}:3x-ui
+            ghcr.io/${{ steps.ghcr_image.outputs.lowercase }}:3x-ui
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Sync README.md
         uses: ms-jpq/sync-dockerhub-readme@v1

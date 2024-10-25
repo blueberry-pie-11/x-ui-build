@@ -23,9 +23,11 @@ RUN go build -a -trimpath \
     -o x-ui
 
 # Final stage
-FROM alpine:latest
+FROM alpine:3.19
 
-LABEL org.opencontainers.image.authors="https://github.com/enwaiax"
+LABEL org.opencontainers.image.authors="https://github.com/enwaiax" \
+    org.opencontainers.image.description="X-UI Panel Docker Image" \
+    org.opencontainers.image.source="https://github.com/vaxilu/x-ui"
 
 # Set timezone and install necessary packages
 ENV TZ=Asia/Shanghai
@@ -42,16 +44,25 @@ COPY --from=builder /go/x-ui/x-ui /usr/local/bin/x-ui
 
 # Copy Xray binary and resources based on architecture
 ARG TARGETARCH
-COPY --from=teddysun/xray /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
-COPY --from=teddysun/xray /usr/share/xray/ /usr/local/bin/bin/
+COPY --from=teddysun/xray --chown=nobody:nogroup \
+    /usr/bin/xray /usr/local/bin/bin/xray-linux-${TARGETARCH}
+COPY --from=teddysun/xray --chown=nobody:nogroup \
+    /usr/share/xray/ /usr/local/bin/bin/
+
+# Create non-root user
+RUN adduser -D -H -s /sbin/nologin xui && \
+    chmod +x /usr/local/bin/x-ui
 
 # Set up volume and working directory
 VOLUME ["/etc/x-ui"]
 WORKDIR /usr/local/bin
 
+# Switch to non-root user
+USER xui
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:54321 || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:${PORT:-54321}/login || exit 1
 
 # Expose necessary ports (customize as needed)
 EXPOSE 54321

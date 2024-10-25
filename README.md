@@ -11,16 +11,16 @@
 
 [docker-pulls-shield]: https://img.shields.io/docker/pulls/enwaiax/x-ui.svg?style=flat-square
 [docker-pulls-url]: https://hub.docker.com/r/enwaiax/x-ui
-[contributors-shield]: https://img.shields.io/github/contributors/chasing66/x-ui.svg?style=flat-square
-[contributors-url]: https://github.com/Chasing66/x-ui/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/chasing66/x-ui.svg?style=flat-square
-[forks-url]: https://github.com/Chasing66/x-ui/network/members
-[stars-shield]: https://img.shields.io/github/stars/chasing66/x-ui.svg?style=flat-square
-[stars-url]: https://github.com/Chasing66/x-ui/stargazers
-[issues-shield]: https://img.shields.io/github/issues/chasing66/x-ui.svg?style=flat-square
-[issues-url]: https://github.com/Chasing66/x-ui/issues
-[license-shield]: https://img.shields.io/github/license/Chasing66/x-ui.svg?style=flat-square
-[license-url]: https://github.com/Chasing66/x-ui/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/enwaiax/x-ui.svg?style=flat-square
+[contributors-url]: https://github.com/enwaiax/x-ui/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/enwaiax/x-ui.svg?style=flat-square
+[forks-url]: https://github.com/enwaiax/x-ui/network/members
+[stars-shield]: https://img.shields.io/github/stars/enwaiax/x-ui.svg?style=flat-square
+[stars-url]: https://github.com/enwaiax/x-ui/stargazers
+[issues-shield]: https://img.shields.io/github/issues/enwaiax/x-ui.svg?style=flat-square
+[issues-url]: https://github.com/enwaiax/x-ui/issues
+[license-shield]: https://img.shields.io/github/license/enwaiax/x-ui.svg?style=flat-square
+[license-url]: https://github.com/enwaiax/x-ui/blob/main/LICENSE
 
 [English](README.md) | [中文文档](./docs/README_zh.md)
 
@@ -33,6 +33,7 @@ You could selecet your perfer one by changing the docker image tag
 | [vaxilu/x-ui](https://github.com/vaxilu/x-ui)              | latest | ✅    | ✅    | ✅    | ✅    |
 | [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-ui)  | alpha  | ✅    | ✅    | ❌    | ✅    |
 | [X-UI-Unofficial/x-ui](https://github.com/X-UI-Unofficial) | beta   | ✅    | ✅    | ❌    | ✅    |
+| [MHSanaei/3x-ui](https://github.com/MHSanaei/3x-ui)        | 3x-ui  | ✅    | ✅    | ✅    | ✅    |
 
 ### Why Should You Use Docker
 
@@ -80,7 +81,7 @@ Note: If you want to use [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-u
 
 ```
 mkdir x-ui && cd x-ui
-wget https://raw.githubusercontent.com/chasing66/x-ui/main/docker-compose.yml
+wget https://raw.githubusercontent.com/enwaiax/x-ui/main/docker-compose.yml
 docker compose up -d
 ```
 

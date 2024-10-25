@@ -2,7 +2,7 @@ services:
   xui:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.alpha
     image: enwaiax/x-ui
     container_name: xui
     restart: unless-stopped
